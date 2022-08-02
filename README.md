@@ -24,7 +24,7 @@ This GitHub Action copies a file from the current repository to a location in an
             user_email: 'example@email.com'
             user_name: 'bonus83'
             commit_message: 'A custom message for the commit'
-	    commit_tag: 'V2.0'
+      	    commit_tag: 'V2.0'
 
 # Variables
 
@@ -39,7 +39,6 @@ The `API_TOKEN_GITHUB` needs to be set in the `Secrets` section of your reposito
 * destination_branch_create: [optional] A branch to be created with this commit, defaults to commiting in `destination_branch`
 * commit_message: [optional] A custom commit message for the commit. Defaults to `Update from https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}`
 * commit_tag: [optional] A custom tag to the commit.
-* use_rsync: [optional] Uses `rsync -avh` instead of `cp -R` to perform the base operation. Currently works as an experimental feature (due to lack of testing) but can speed up updates to large collections of files with many small changes by only syncing the changes and not copying the entire contents again. Please understand your use case before using this, and provide feedback as issues if needed.
 
 # Behavior Notes
 The action will create any destination paths if they don't exist. It will also overwrite existing files if they already exist in the locations being copied to. It will not delete the entire destination repository.
