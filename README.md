@@ -1,5 +1,5 @@
-# copy_commit_push_tag
-This GitHub Action copies a file from the current repository to a location in another repository
+# Rsync / Commit / Tag
+This GitHub Action copies a file from the current repository to another repository using rsync, commits the change and tags it. 
 
 # Example Workflow
     name: Push File
@@ -14,15 +14,15 @@ This GitHub Action copies a file from the current repository to a location in an
           uses: actions/checkout@v2
 
         - name: Pushes test file
-          uses: bonus83/copy_commit_push_tag@main
-          env:
+          uses: BracketSpace/rsync-commit-tag@main
+          env:  
             API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           with:
             source_file: 'test2.md'
-            destination_repo: 'bonus83/release-test'
+            destination_repo: 'BracketSpace/release-test'
             destination_folder: 'test-dir'
             user_email: 'example@email.com'
-            user_name: 'bonus83'
+            user_name: 'BracketSpace'
             commit_message: 'A custom message for the commit'
       	    commit_tag: 'V2.0'
 
